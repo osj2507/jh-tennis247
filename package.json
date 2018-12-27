@@ -21,15 +21,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "chalk": "^2.4.1",
-    "contentful-import": "^7.4.0",
     "eslint": "^5.6.1",
     "eslint-plugin-react": "^7.11.1",
     "gatsby": "^2.0.18",
     "gh-pages": "^2.0.1",
-    "inquirer": "^6.2.0",
     "prettier": "^1.14.3",
-    "rimraf": "^2.6.2",
     "yargs-parser": "^11.0.0"
   },
   "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
@@ -53,6 +49,7 @@
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "postinstall": "node ./bin/hello.js",
     "setup": "node ./bin/setup.js",
+    "start": "gatsby serve",
     "heroku-postbuild": "gatsby build",
     "cleanup-repository": "rimraf bin contentful && yarn remove contentful-import chalk inquirer rimraf "
   }
