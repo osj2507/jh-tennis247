@@ -60,8 +60,9 @@ typings/
 # build folder
 public
 
-# gatsby cache folder
+# cache file & folder
 .cache
+.DS_Store
 
 # contentful config file
 .contentful.json
