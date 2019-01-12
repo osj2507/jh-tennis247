@@ -50,7 +50,7 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    featuredBlogPosts: allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 2) {
+    featuredBlogPosts: allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 5) {
       edges {
         node {
           title
@@ -98,16 +98,6 @@ export const pageQuery = graphql`
             shortBio
           }
           title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
         }
       }
     }
