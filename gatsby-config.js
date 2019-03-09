@@ -11,6 +11,14 @@ contentfulConfig = {
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
 }
 
+// check settings here https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
+googleAnalyticsConfig = {
+  trackingId: "UA-132769225-1",
+  head: false,
+  anonymize: true,
+  respectDNT: true,
+}
+
 const { spaceId, accessToken } = contentfulConfig
 
 if (!spaceId || !accessToken) {
@@ -28,7 +36,11 @@ module.exports = {
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
+      options: contentfulConfig
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: googleAnalyticsConfig
     }
   ],
 }
