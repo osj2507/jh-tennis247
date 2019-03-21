@@ -12,8 +12,7 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const pageInformation = get(this, 'props.data.allContentfulPage.edges')
-    const postsFeatured = get(this, 'props.data.featuredBlogPosts.edges')
-    const posts = get(this, 'props.data.nonfeaturedBlogPosts.edges')
+    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const postsTwitter = get(this, 'props.data.allContentfulTwitterPost.edges')
     const postsYoutube = get(this, 'props.data.allContentfulYoutubePost.edges')
 
@@ -30,24 +29,24 @@ class RootIndex extends React.Component {
           )
         })}
         <div className="wrapper">
-          <h2 className="section-headline">Populære artikler</h2>
+          <h2 className="section-headline">Artikler</h2>
           <ul className="article-list">
-            {postsFeatured.map(({ node }) => {
+            {posts.map(({ node }) => {
               return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                <li key={node.id}>
+                  <ArticlePreview article={node} type="post" />
                 </li>
               )
             })}
           </ul>
         </div>
         <div className="wrapper">
-          <h2 className="section-headline">Seneste artikler</h2>
+          <h2 className="section-headline">Videoer</h2>
           <ul className="article-list">
-            {posts.map(({ node }) => {
+            {postsYoutube.map(({ node }) => {
               return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
+                <li key={node.id}>
+                  <ArticlePreview article={node} type="video" />
                 </li>
               )
             })}
@@ -77,29 +76,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredBlogPosts: allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 3) {
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, limit: 12) {
       edges {
         node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          featured
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-             ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    nonfeaturedBlogPosts: allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }, skip: 3, limit: 8) {
-      edges {
-        node {
+          id
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
@@ -120,6 +100,7 @@ export const pageQuery = graphql`
     allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
+          id
           title
           url
           publishDate(formatString: "MMMM Do, YYYY")
@@ -129,6 +110,7 @@ export const pageQuery = graphql`
     allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
+          id
           title
           url
           publishDate(formatString: "MMMM Do, YYYY")

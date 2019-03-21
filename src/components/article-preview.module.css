@@ -1,5 +1,25 @@
+.previewWrapper {
+  border: 1px solid #eee;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.previewContent {
+  padding: 32px;
+}
+
 .previewTitle {
   font-size: 1.5em;
+  color: green;
+  margin: 0;
+}
+
+.previewDescription, .previewDescription p {
+  margin: 0;
+}
+.previewDescription p {
+  margin-top: 32px;
 }
 
 .image {
