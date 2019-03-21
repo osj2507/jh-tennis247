@@ -7,10 +7,10 @@ export const Navigation = () => {
   return (
   <nav role="navigation" className={styles.nav}>
     <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
+      <li key="logo" className={styles.navigationItem}>
         <Link to="/"><span className={styles.namePrimary}>TENNIS</span><span className={styles.nameSecondary}>24/7</span></Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li key="blog" className={styles.navigationItem}>
         <Link
           to="/blog/"
           className={styles.navigationItemLink}
@@ -22,6 +22,27 @@ export const Navigation = () => {
           BLOG
         </Link>
       </li>
+      <li key="calendar-women" className={styles.navigationItem}>
+        <a
+          className={styles.navigationItemLink}
+          href="https://www.wtatennis.com/calendar"
+          target="_blank"
+          rel="noopener norefferer"
+        >
+          WTA KALENDER
+        </a>
+      </li>
+      <li key="calendar-men" className={styles.navigationItem}>
+        <a
+          className={styles.navigationItemLink}
+          href="https://www.atptour.com/en/tournaments"
+          target="_blank"
+          rel="noopener norefferer"
+        >
+          ATP KALENDER
+        </a>
+      </li>
+
       {/*<li className={styles.navigationItem}>
         <Link
           to="/blog/video/"
