@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
 import heroStyles from '../components/hero.module.css'
+import styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -23,16 +24,19 @@ class BlogPostTemplate extends React.Component {
           </div>
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
+            <div className={styles.postDate}>
               {post.publishDate}
-            </p>
+            </div>
             <div
+              className={styles.postDescription}
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: post.description.childMarkdownRemark.html
+              }}
+            />
+            <div
+              className={styles.postBody}
+              dangerouslySetInnerHTML={{
+                __html: post.body.childMarkdownRemark.html
               }}
             />
           </div>
@@ -52,6 +56,11 @@ export const pageQuery = graphql`
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG
+        }
+      }
+      description {
+        childMarkdownRemark {
+          html
         }
       }
       body {

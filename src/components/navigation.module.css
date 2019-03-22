@@ -54,4 +54,5 @@ nav {
 .navigationItem a, .navigationItem a:hover {
   color: currentColor;
   text-decoration: none;
+  font-size: .85em;
 }
