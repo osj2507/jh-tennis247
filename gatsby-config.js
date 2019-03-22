@@ -41,6 +41,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: googleAnalyticsConfig
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+        {
+          resolve: "gatsby-remark-external-links",
+          options: {
+            target: "_blank",
+            rel: "nofollow noopener noreferrer"
+          }
+        }
+        ]
+      }
     }
   ],
 }
