@@ -13,7 +13,6 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const pageInformation = get(this, 'props.data.allContentfulPage.edges')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const postsTwitter = get(this, 'props.data.allContentfulTwitterPost.edges')
     const postsYoutube = get(this, 'props.data.allContentfulYoutubePost.edges')
 
     return (
@@ -97,17 +96,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          id
-          title
-          url
-          publishDate(formatString: "MMMM Do, YYYY")
-        }
-      }
-    }
-    allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }, limit: 6) {
       edges {
         node {
           id

@@ -37,19 +37,5 @@ export default ({ article, type }) => (
       </>
       )
     }
-    {
-      type === 'twitter' && (
-      <>
-        <blockquote className="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">650 IT leaders described the biggest digital transformation challenges and opportunities they&#39;re facing in 2019. See what they said!</p>&mdash; MuleSoft (@MuleSoft) <a href="https://twitter.com/MuleSoft/status/1100507025153306625?ref_src=twsrc%5Etfw">February 26, 2019</a></blockquote>
-        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script>
-        <div className={styles.previewContent}>
-          <h3 className={styles.previewTitle}>
-            {article.title}
-          </h3>
-          <small>{article.publishDate}</small>
-        </div>
-      </>
-      )
-    }
   </div>
 )
