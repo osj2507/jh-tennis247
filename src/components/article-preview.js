@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 
 import styles from './article-preview.module.css'
 
@@ -8,7 +7,7 @@ export default ({ article, type }) => (
   <div className={styles.previewWrapper}>
     { type === 'post' && (
       <>
-        <Img alt={article.title} fluid={article.heroImage.fluid} />
+        <img className={styles.previewImage} src={article.heroImage.file.url} />
         <div className={styles.previewContent}>
           <h3 className={styles.previewTitle}>
             <Link to={`/blog/${article.slug}`}>{article.title}</Link>

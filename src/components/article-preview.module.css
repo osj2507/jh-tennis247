@@ -5,6 +5,12 @@
   border-radius: 4px;
 }
 
+.previewImage {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
 .previewContent {
   padding: 32px;
 }
@@ -20,10 +26,4 @@
 }
 .previewDescription p {
   margin-top: 32px;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
