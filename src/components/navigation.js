@@ -22,6 +22,18 @@ export const Navigation = () => {
           BLOG
         </Link>
       </li>
+      <li key="video" className={styles.navigationItem}>
+        <Link
+          to="/video/"
+          className={styles.navigationItemLink}
+          activeClassName={styles.navigationItemLinkActive}
+          getProps={({ isPartiallyCurrent }) =>
+            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
+          }
+        >
+          VIDEO
+        </Link>
+      </li>
       <li key="calendar-women" className={styles.navigationItem}>
         <a
           className={styles.navigationItemLink}
