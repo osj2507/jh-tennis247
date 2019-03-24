@@ -2,11 +2,9 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import Hero from '../components/hero'
 import Layout from '../components/layout'
+import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
-
-import heroStyles from '../components/hero.module.css'
 
 class RootIndex extends React.Component {
   render() {
@@ -20,11 +18,7 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} />
         {pageInformation.map(({ node }) => {
           return (
-            <div className={heroStyles.hero}>
-              <img className={heroStyles.heroImage} src={node.heroImage.file.url} />
-              <div className={heroStyles.heroImageOverlayLeft} />
-              <div className={heroStyles.heroImageOverlayRight} />
-            </div>
+            <Hero data={node} />
           )
         })}
         <div className="wrapper">
@@ -33,7 +27,7 @@ class RootIndex extends React.Component {
             {posts.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <ArticlePreview article={node} type="post" />
+                  <ArticlePreview data={node} type="post" />
                 </li>
               )
             })}
@@ -45,7 +39,7 @@ class RootIndex extends React.Component {
             {postsYoutube.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <ArticlePreview article={node} type="video" />
+                  <ArticlePreview data={node} type="video" />
                 </li>
               )
             })}
