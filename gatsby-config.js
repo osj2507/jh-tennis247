@@ -29,11 +29,15 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   pathPrefix: '/gatsby-contentful-starter',
+  siteMetadata: {
+    siteUrl: `http://www.tennis247.net`,
+  },
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig
