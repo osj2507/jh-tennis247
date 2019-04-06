@@ -69,6 +69,9 @@ module.exports = {
           },
           {
             resolve: "gatsby-remark-responsive-iframe",
+          },
+          {
+            resolve: "@weknow/gatsby-remark-twitter",
           }
         ]
       }
