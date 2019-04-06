@@ -13,7 +13,7 @@ export default ({ data, type }) => (
             <Link to={`/blog/${data.slug}`}>{data.title}</Link>
           </h3>
           <small>{data.publishDate}</small>
-          <p
+          <div
             className={styles.previewDescription}
             dangerouslySetInnerHTML={{
               __html: data.description.childMarkdownRemark.html,
