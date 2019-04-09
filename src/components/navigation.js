@@ -54,25 +54,18 @@ export const Navigation = () => {
           ATP KALENDER
         </a>
       </li>
-
-      {/*<li className={styles.navigationItem}>
+      <li key="about" className={styles.navigationItem}>
         <Link
-          to="/blog/video/"
+          to="/about/"
           className={styles.navigationItemLink}
           activeClassName={styles.navigationItemLinkActive}
+          getProps={({ isPartiallyCurrent }) =>
+            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
+          }
         >
-          VIDEO
+          OM OS
         </Link>
       </li>
-      <li className={styles.navigationItem}>
-        <Link
-          to="/blog/instagram/"
-          className={styles.navigationItemLink}
-          activeClassName={styles.navigationItemLinkActive}
-        >
-          INSTAGRAM
-        </Link>
-      </li>*/}
     </ul>
   </nav>
   )
