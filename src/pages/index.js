@@ -15,7 +15,29 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} >
-        <Helmet title={siteTitle} />
+        {pageInformation.map(({ node }) => {
+          return (
+            <Helmet>
+              <title>{siteTitle}</title>
+
+              <meta name="description" content="" />
+
+              <meta property="og:title" content={siteTitle} />
+              <meta property="og:image" content={node.heroImage.file.url} />
+              <meta property="og:url" content="/" />
+              <meta property="og:description" content="" />
+              <meta property="og:site_name" content="tennis247.dk" />
+
+              <meta name="twitter:card" content="" />
+              <meta name="twitter:site" content="@tennis247dk" />
+              <meta name="twitter:title" content={siteTitle} />
+              <meta name="twitter:description" content="" />
+              <meta name="twitter:creator" content="@tennis247dk" />
+              <meta name="twitter:image" content={node.heroImage.file.url} />
+              <meta name="twitter:domain" content="tennis247.dk" />
+            </Helmet>
+          )
+        })}
         {pageInformation.map(({ node }) => {
           return (
             <Hero data={node} />
