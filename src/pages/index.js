@@ -28,7 +28,7 @@ class RootIndex extends React.Component {
               <meta property="og:description" content="" />
               <meta property="og:site_name" content="tennis247.dk" />
 
-              <meta name="twitter:card" content="" />
+              <meta name="twitter:card" content="summary" />
               <meta name="twitter:site" content="@tennis247dk" />
               <meta name="twitter:title" content={siteTitle} />
               <meta name="twitter:description" content="" />

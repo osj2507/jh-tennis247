@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
             <meta property="og:description" content={post.description.childMarkdownRemark.html} />
             <meta property="og:site_name" content="tennis247.dk" />
 
-            <meta name="twitter:card" content={post.description.childMarkdownRemark.html} />
+            <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@tennis247dk" />
             <meta name="twitter:title" content={post.title} />
             <meta name="twitter:description" content={post.description.childMarkdownRemark.html} />
