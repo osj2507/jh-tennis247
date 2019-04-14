@@ -2,10 +2,6 @@
   "name": "gatsby-contentful-starter",
   "description": "Starter Contentful Gatsby Blog",
   "version": "1.0.0",
-  "engines": {
-    "node": "10.6.0",
-    "npm": "6.1.0"
-  },
   "author": "Stefan Judis <stefanjudis@gmail.com>",
   "bugs": {
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
@@ -57,7 +53,6 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
-    "start": "gatsby serve  --port ${PORT}",
-    "heroku-postbuild": "gatsby build"
+    "start": "gatsby serve --port ${PORT}"
   }
 }
