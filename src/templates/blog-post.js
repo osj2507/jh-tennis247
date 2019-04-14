@@ -48,7 +48,7 @@ class BlogPostTemplate extends React.Component {
             </div>
             <div className={styles.postShareIcons}>
               <ReactShare
-                  url={`http://www.tennis247.dk/blog/${post.slug}`}
+                  url={`https://www.tennis247.net/blog/${post.slug}`}
                   title={post.title}
                   facebook={true}
                   twitter={true}
