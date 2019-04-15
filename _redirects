@@ -1,0 +1,11 @@
+# Redirect domain aliases to primary domain
+https://www.tennis247.dk/* https://www.tennis247.net/:splat 301!
+https://tennis247.dk/* https://www.tennis247.net/:splat 301!
+http://www.tennis247.dk/* https://www.tennis247.net/:splat 301!
+http://tennis247.dk/* https://www.tennis247.net/:splat 301!
+https://staging.tennis247.dk/* https://staging.tennis247.net/:splat 301!
+http://staging.tennis247.dk/* https://staging.tennis247.net/:splat 301!
+
+# Optional: Redirect default Netlify subdomain to primary domain
+https://awesome-wright-908a09.netlify.com/* https://www.tennis247.net/:splat 301!
+https://adoring-chandrasekhar-d660a3.netlify.com/* https://staging.tennis247.net/:splat 301!

@@ -26,7 +26,7 @@ class RootIndex extends React.Component {
               <meta property="og:image" content={node.heroImage.file.url} />
               <meta property="og:url" content="/" />
               <meta property="og:description" content="" />
-              <meta property="og:site_name" content="tennis247.dk" />
+              <meta property="og:site_name" content="tennis247.net" />
 
               <meta name="twitter:card" content="summary" />
               <meta name="twitter:site" content="@tennis247dk" />
@@ -34,7 +34,7 @@ class RootIndex extends React.Component {
               <meta name="twitter:description" content="" />
               <meta name="twitter:creator" content="@tennis247dk" />
               <meta name="twitter:image" content={node.heroImage.file.url} />
-              <meta name="twitter:domain" content="tennis247.dk" />
+              <meta name="twitter:domain" content="tennis247.net" />
             </Helmet>
           )
         })}
