@@ -6,26 +6,22 @@ import Layout from "../components/layout"
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 
-class BlogIndex extends React.Component {
+class VideoIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const pageInformation = get(this, 'props.data.allContentfulPage.edges')
-    const posts = get(this, 'props.data.allContentfulYoutubePost.edges')
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title'),
+          pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
+          posts = get(this, 'props.data.allContentfulYoutubePost.edges');
 
     return (
       <Layout location={this.props.location} >
         <Helmet title={siteTitle} />
-        {pageInformation.map(({ node }) => {
-          return (
-            <Hero data={node} />
-          )
-        })}
+        <Hero data={pageInformation} />
         <div className="wrapper">
           <h2 className="section-headline">Alle videoer</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
-                <li key={node.slug}>
+                <li key={node.id}>
                   <ArticlePreview data={node} type="video" />
                 </li>
               )
@@ -37,7 +33,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default VideoIndex
 
 export const pageQuery = graphql`
   query VideoIndexQuery {
