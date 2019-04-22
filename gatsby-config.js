@@ -58,20 +58,28 @@ module.exports = {
             }
           },
           {
-            resolve: "gatsby-remark-embed-video",
+            resolve: `@raae/gatsby-remark-oembed`,
             options: {
-              width: 600,
-              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-              height: 340, // Optional: Overrides optional.ratio
-              related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
-              noIframeBorder: true //Optional: Disable insertion of <style> border: 0
+              usePrefix: false,
+              providers: {
+                include: [
+                  'Instagram',
+                  'Twitter',
+                  'YouTube'
+                ],
+                exclude: [
+                  'CodePen',
+                  'Flickr',
+                  'Reddit',
+                  'Twitch',
+                  'Vimeo',
+                  'SoundCloud'
+                ]
+              }
             }
           },
           {
             resolve: "gatsby-remark-responsive-iframe",
-          },
-          {
-            resolve: "@weknow/gatsby-remark-twitter",
           }
         ]
       }
