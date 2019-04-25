@@ -4,6 +4,8 @@ import styles from './navigation.module.css'
 
 export const Navigation = () => {
 
+  const navItems = ['blog', 'video', 'tweet'];
+
   return (
   <nav role="navigation" className={styles.nav}>
     <ul className={styles.navigation}>
@@ -19,7 +21,7 @@ export const Navigation = () => {
             isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
           }
         >
-          BLOG
+          ARTIKLER
         </Link>
       </li>
       <li key="video" className={styles.navigationItem}>
@@ -31,7 +33,19 @@ export const Navigation = () => {
             isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
           }
         >
-          VIDEO
+          VIDEOER
+        </Link>
+      </li>
+      <li key="tweet" className={styles.navigationItem}>
+        <Link
+          to="/tweet/"
+          className={styles.navigationItemLink}
+          activeClassName={styles.navigationItemLinkActive}
+          getProps={({ isPartiallyCurrent }) =>
+            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
+          }
+        >
+          TWEETS
         </Link>
       </li>
       <li key="calendar-women" className={styles.navigationItem}>

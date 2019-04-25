@@ -26,7 +26,7 @@ export default ({ data, type }) => (
     {
       type === 'video' && (
       <div className={styles.previewWrapper}>
-        <div
+        <div className={styles.previewVideo}
           dangerouslySetInnerHTML={{
             __html: data.url.childMarkdownRemark.html
           }}

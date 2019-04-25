@@ -10,7 +10,7 @@ class TweetIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title'),
           pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
-          posts = get(this, 'props.data.allContentfulYoutubePost.edges');
+          posts = get(this, 'props.data.allContentfulTwitterPost.edges');
 
     return (
       <Layout location={this.props.location} >
