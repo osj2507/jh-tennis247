@@ -6,23 +6,23 @@ import Layout from "../components/layout"
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
 
-class VideoIndex extends React.Component {
+class TweetIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title'),
           pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
-          posts = get(this, 'props.data.allContentfulYoutubePost.edges');
+          posts = get(this, 'props.data.allContentfulTwitterPost.edges');
 
     return (
       <Layout location={this.props.location} >
         <Helmet title={siteTitle} />
         <Hero data={pageInformation} />
         <div className="wrapper">
-          <h2 className="section-headline">Alle videoer</h2>
+          <h2 className="section-headline">Alle tweets</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <ArticlePreview data={node} type="video" />
+                  <ArticlePreview data={node} type="tweet" />
                 </li>
               )
             })}
@@ -33,11 +33,11 @@ class VideoIndex extends React.Component {
   }
 }
 
-export default VideoIndex
+export default TweetIndex
 
 export const pageQuery = graphql`
-  query VideoIndexQuery {
-    allContentfulPage(filter:{slug:{eq:"video"}}) {
+  query TweetIndexQuery {
+    allContentfulPage(filter:{slug:{eq:"tweet"}}) {
       edges {
         node {
           title
@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           id
@@ -63,11 +63,6 @@ export const pageQuery = graphql`
             }
           }
           publishDate(formatString: "MMMM Do, YYYY")
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
         }
       }
     }

@@ -57,6 +57,18 @@ class RootIndex extends React.Component {
             })}
           </ul>
         </div>
+        <div className="wrapper">
+          <h2 className="section-headline">Tweets</h2>
+          <ul className="article-list">
+            {postsTwitter.map(({ node }) => {
+              return (
+                <li key={node.id}>
+                  <ArticlePreview data={node} type="tweet" />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </Layout>
     )
   }
@@ -111,7 +123,30 @@ export const pageQuery = graphql`
         node {
           id
           title
-          url
+          url {
+            childMarkdownRemark {
+              html
+            }
+          }
+          publishDate(formatString: "MMMM Do, YYYY")
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }, limit: 6) {
+      edges {
+        node {
+          id
+          title
+          url {
+            childMarkdownRemark {
+              html
+            }
+          }
           publishDate(formatString: "MMMM Do, YYYY")
         }
       }
