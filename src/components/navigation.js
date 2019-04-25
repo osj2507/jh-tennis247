@@ -4,7 +4,20 @@ import styles from './navigation.module.css'
 
 export const Navigation = () => {
 
-  const navItems = ['blog', 'video', 'tweet'];
+  const navItems = [
+          {
+            id: 'blog',
+            title: 'ARTIKLER'
+          },
+          {
+            id: 'video',
+            title: 'VIDEOER'
+          },
+          {
+            id: 'tweet',
+            title: 'TWEETS'
+          }
+        ];
 
   return (
   <nav role="navigation" className={styles.nav}>
@@ -12,42 +25,24 @@ export const Navigation = () => {
       <li key="logo" className={styles.navigationItem}>
         <Link to="/"><span className={styles.namePrimary}>TENNIS</span><span className={styles.nameSecondary}>24/7</span></Link>
       </li>
-      <li key="blog" className={styles.navigationItem}>
-        <Link
-          to="/blog/"
-          className={styles.navigationItemLink}
-          activeClassName={styles.navigationItemLinkActive}
-          getProps={({ isPartiallyCurrent }) =>
-            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
-          }
-        >
-          ARTIKLER
-        </Link>
-      </li>
-      <li key="video" className={styles.navigationItem}>
-        <Link
-          to="/video/"
-          className={styles.navigationItemLink}
-          activeClassName={styles.navigationItemLinkActive}
-          getProps={({ isPartiallyCurrent }) =>
-            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
-          }
-        >
-          VIDEOER
-        </Link>
-      </li>
-      <li key="tweet" className={styles.navigationItem}>
-        <Link
-          to="/tweet/"
-          className={styles.navigationItemLink}
-          activeClassName={styles.navigationItemLinkActive}
-          getProps={({ isPartiallyCurrent }) =>
-            isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
-          }
-        >
-          TWEETS
-        </Link>
-      </li>
+
+      {navItems.map(({ id, title }) => {
+        return (
+          <li key={id} className={styles.navigationItem}>
+            <Link
+              to={`/${id}/`}
+              className={styles.navigationItemLink}
+              activeClassName={styles.navigationItemLinkActive}
+              getProps={({ isPartiallyCurrent }) =>
+                isPartiallyCurrent ? { className: styles.navigationItemLink + ' ' + styles.navigationItemLinkActive } : null
+              }
+            >
+              {title}
+            </Link>
+          </li>
+        )
+      })}
+
       <li key="calendar-women" className={styles.navigationItem}>
         <a
           className={styles.navigationItemLink}
