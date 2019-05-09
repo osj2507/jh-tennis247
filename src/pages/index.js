@@ -34,7 +34,6 @@ class RootIndex extends React.Component {
         </Helmet>
         <Hero data={pageInformation} />
         <div className="wrapper">
-          <h2 className="section-headline">Artikler</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
@@ -46,7 +45,6 @@ class RootIndex extends React.Component {
           </ul>
         </div>
         <div className="wrapper">
-          <h2 className="section-headline">Videoer</h2>
           <ul className="article-list">
             {postsYoutube.map(({ node }) => {
               return (
@@ -58,7 +56,6 @@ class RootIndex extends React.Component {
           </ul>
         </div>
         <div className="wrapper">
-          <h2 className="section-headline">Tweets</h2>
           <ul className="article-list">
             {postsTwitter.map(({ node }) => {
               return (

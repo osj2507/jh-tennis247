@@ -18,7 +18,6 @@ class AboutIndex extends React.Component {
             <>
             <Hero data={node} />
             <div className="wrapper">
-              <h1 className="section-headline">{node.header}</h1>
               <div
                 dangerouslySetInnerHTML={{
                   __html: node.description.childMarkdownRemark.html,

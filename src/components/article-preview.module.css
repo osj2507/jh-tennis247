@@ -6,7 +6,7 @@
 }
 
 .previewVideo {
-  margin-top: -16px;
+  margin: -16px 0;
 }
 
 .previewImage {
@@ -20,7 +20,7 @@
 }
 
 .previewTitle {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: green;
   margin: 0;
 }
@@ -29,5 +29,5 @@
   margin: 0;
 }
 .previewDescription p {
-  margin-top: 32px;
+  margin-top: 16px;
 }
