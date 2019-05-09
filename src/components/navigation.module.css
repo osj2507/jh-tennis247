@@ -7,10 +7,8 @@ nav {
   width: 100%;
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0;
   list-style: none;
-  display: flex;
-  justify-content: flex-end;
 }
 
 @media(min-width: 1140px) {
@@ -19,8 +17,26 @@ nav {
   }
 }
 
+.navigationItemsWrapper {
+  display: inline-block;
+  float: right;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 76px;
+  padding: 0 32px 0 0;
+}
+
+.navigationItems {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .navigationItem {
-  align-items: center;
+  display: inline-block;
   margin-top: 24px;
 }
 .navigationItemLink {
@@ -30,10 +46,11 @@ nav {
 .navigationItemLinkActive {
   border-bottom: 4px solid green;
 }
-.navigationItem:first-child {
+.navigationItemLogo {
   margin-top: 0px; 
   margin-right: auto;
-  padding: 16px 0;
+  padding: 16px 0 0 32px;
+  float: left;
 }
 .navigationItemLink:hover {
   border-bottom: 4px solid green;

@@ -3,6 +3,7 @@
   width: 100vw;
   height: 61.8vh;
   max-height: 350px;
+  margin-bottom: 32px;
   overflow: hidden;
 }
 
@@ -10,6 +11,18 @@
   .hero {
     margin-left: calc(-50vw + (1140px / 2));
   }
+}
+
+.heroTitle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 64px auto 0;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .heroImage {

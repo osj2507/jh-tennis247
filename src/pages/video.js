@@ -17,7 +17,6 @@ class VideoIndex extends React.Component {
         <Helmet title={siteTitle} />
         <Hero data={pageInformation} />
         <div className="wrapper">
-          <h2 className="section-headline">Alle videoer</h2>
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
@@ -49,6 +48,7 @@ export const pageQuery = graphql`
               contentType
             }
           }
+          header
         }
       }
     }
