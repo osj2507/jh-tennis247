@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulTwitterPost(sort: { fields: [publishDate], order: DESC }, limit: 48) {
       edges {
         node {
           id
