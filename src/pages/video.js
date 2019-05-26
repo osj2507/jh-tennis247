@@ -52,7 +52,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulYoutubePost(sort: { fields: [publishDate], order: DESC }, limit: 48) {
       edges {
         node {
           id
