@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
+import Commercial from '../components/commercial'
 import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
@@ -45,6 +46,9 @@ class RootIndex extends React.Component {
           </ul>
         </div>
         <div className="wrapper">
+          <Commercial data={{color: 'green'}} />
+        </div>
+        <div className="wrapper">
           <ul className="article-list">
             {postsYoutube.map(({ node }) => {
               return (
@@ -56,6 +60,9 @@ class RootIndex extends React.Component {
           </ul>
         </div>
         <div className="wrapper">
+          <Commercial data={{color: 'blue'}} />
+        </div>
+        <div className="wrapper">
           <ul className="article-list">
             {postsTwitter.map(({ node }) => {
               return (
@@ -65,6 +72,9 @@ class RootIndex extends React.Component {
               )
             })}
           </ul>
+        </div>
+        <div className="wrapper">
+          <Commercial data={{color: 'orange'}} />
         </div>
       </Layout>
     )

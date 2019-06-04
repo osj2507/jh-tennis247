@@ -1,0 +1,29 @@
+.commercialBackgroundColorBlue {
+  background-color: #006eb7;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.commercialBackgroundColorGreen {
+  background-color: #18723c;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.commercialBackgroundColorOrange {
+  background-color: #f58249;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.commercialImage {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  align-self: center;
+}
