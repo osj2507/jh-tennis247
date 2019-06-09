@@ -7,26 +7,34 @@ import Hero from '../components/hero'
 
 class AboutIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const pageInformation = get(this, 'props.data.allContentfulPage.edges')
+    const pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node');
 
     return (
       <Layout location={this.props.location} >
-        <Helmet title={siteTitle} />
-        {pageInformation.map(({ node }) => {
-          return (
-            <>
-            <Hero data={node} />
-            <div className="wrapper">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: node.description.childMarkdownRemark.html,
-                }}
-              />
-            </div>
-            </>
-          )
-        })}
+        <Helmet>
+          <title>{pageInformation.metaTitle}</title>
+          <meta name="description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
+          <meta property="og:title" content={pageInformation.metaTitle} />
+          <meta property="og:image" content={pageInformation.heroImage.file.url} />
+          <meta property="og:url" content="https://www.tennis247.net/about" />
+          <meta property="og:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
+          <meta property="og:site_name" content="tennis247.net" />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@tennis247dk" />
+          <meta name="twitter:title" content={pageInformation.metaTitle} />
+          <meta name="twitter:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
+          <meta name="twitter:creator" content="@tennis247dk" />
+          <meta name="twitter:image" content={pageInformation.heroImage.file.url} />
+          <meta name="twitter:domain" content="tennis247.net" />
+        </Helmet>
+        <Hero data={pageInformation} />
+        <div className="wrapper">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: pageInformation.description.childMarkdownRemark.html,
+            }}
+          />
+        </div>
       </Layout>
     )
   }
@@ -39,6 +47,7 @@ export const pageQuery = graphql`
     allContentfulPage(filter:{slug:{eq:"about"}}) {
       edges {
         node {
+          id
           title
           heroImage {
             id
@@ -52,6 +61,12 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
+            }
+          }
+          metaTitle
+          metaDescription {
+            childMarkdownRemark {
+              rawMarkdownBody
             }
           }
         }
