@@ -10,31 +10,28 @@ import styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
+          post = get(this.props, 'data.contentfulBlogPost');
 
     return (
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet>
-            <title>{post.title}</title>
-
-            <meta name="description" content={post.description.childMarkdownRemark.html} />
-
-            <meta property="og:title" content={post.title} />
+            <title>{`${pageInformation.metaTitle} - ${post.title}`}</title>
+            <meta name="description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
+            <meta property="og:title" content={`${pageInformation.metaTitle} - ${post.title}`} />
             <meta property="og:type" content="article" />
             <meta property="og:image" content={post.heroImage.file.url} />
-            <meta property="og:url" content={`/blog/${post.slug}`} />
-            <meta property="og:description" content={post.description.childMarkdownRemark.html} />
-            <meta property="og:site_name" content="tennis247.dk" />
-
+            <meta property="og:url" content={`https://www.tennis247.net//blog/${post.slug}`} />
+            <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
+            <meta property="og:site_name" content="tennis247.net" />
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:site" content="@tennis247dk" />
-            <meta name="twitter:title" content={post.title} />
-            <meta name="twitter:description" content={post.description.childMarkdownRemark.html} />
+            <meta name="twitter:title" content={`${pageInformation.metaTitle} - ${post.title}`} />
+            <meta name="twitter:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
             <meta name="twitter:creator" content="@tennis247dk" />
             <meta name="twitter:image" content={post.heroImage.file.url} />
-            <meta name="twitter:domain" content="tennis247.dk" />
+            <meta name="twitter:domain" content="tennis247.net" />
           </Helmet>
           <div className={heroStyles.hero}>
             <img className={heroStyles.heroImage} alt={post.title} src={post.heroImage.file.url} />
@@ -78,6 +75,28 @@ export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    allContentfulPage(filter:{slug:{eq:"blog"}}) {
+      edges {
+        node {
+          title
+          heroImage {
+            id
+            file {
+              url
+              fileName
+              contentType
+            }
+          }
+          header
+          metaTitle
+          metaDescription {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+        }
+      }
+    }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
@@ -93,6 +112,7 @@ export const pageQuery = graphql`
       description {
         childMarkdownRemark {
           html
+          rawMarkdownBody
         }
       }
       body {

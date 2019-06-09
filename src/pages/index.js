@@ -9,8 +9,7 @@ import ArticlePreview from '../components/article-preview'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title'),
-          pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
+    const pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
           posts = get(this, 'props.data.allContentfulBlogPost.edges'),
           postsYoutube = get(this, 'props.data.allContentfulYoutubePost.edges'),
           postsTwitter = get(this, 'props.data.allContentfulTwitterPost.edges');
@@ -18,17 +17,17 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location} >
         <Helmet>
-          <title>{siteTitle}</title>
-          <meta name="description" content="" />
-          <meta property="og:title" content={siteTitle} />
+          <title>{pageInformation.metaTitle}</title>
+          <meta name="description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
+          <meta property="og:title" content={pageInformation.metaTitle} />
           <meta property="og:image" content={pageInformation.heroImage.file.url} />
-          <meta property="og:url" content="/" />
-          <meta property="og:description" content="" />
+          <meta property="og:url" content="https://www.tennis247.net" />
+          <meta property="og:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:site_name" content="tennis247.net" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@tennis247dk" />
-          <meta name="twitter:title" content={siteTitle} />
-          <meta name="twitter:description" content="" />
+          <meta name="twitter:title" content={pageInformation.metaTitle} />
+          <meta name="twitter:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta name="twitter:creator" content="@tennis247dk" />
           <meta name="twitter:image" content={pageInformation.heroImage.file.url} />
           <meta name="twitter:domain" content="tennis247.net" />
@@ -96,6 +95,12 @@ export const pageQuery = graphql`
               url
               fileName
               contentType
+            }
+          }
+          metaTitle
+          metaDescription {
+            childMarkdownRemark {
+              rawMarkdownBody
             }
           }
         }
