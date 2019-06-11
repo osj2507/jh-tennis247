@@ -21,7 +21,7 @@ class BlogPostTemplate extends React.Component {
             <meta name="description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
             <meta property="og:title" content={`${pageInformation.metaTitle} - ${post.title}`} />
             <meta property="og:type" content="article" />
-            <meta property="og:image" content={post.heroImage.file.url} />
+            <meta property="og:image" content={`https:${post.heroImage.file.url}`} />
             <meta property="og:url" content={`https://www.tennis247.net//blog/${post.slug}`} />
             <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
             <meta property="og:site_name" content="tennis247.net" />
@@ -30,7 +30,7 @@ class BlogPostTemplate extends React.Component {
             <meta name="twitter:title" content={`${pageInformation.metaTitle} - ${post.title}`} />
             <meta name="twitter:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
             <meta name="twitter:creator" content="@tennis247dk" />
-            <meta name="twitter:image" content={post.heroImage.file.url} />
+            <meta name="twitter:image" content={`https:${post.heroImage.file.url}`} />
             <meta name="twitter:domain" content="tennis247.net" />
           </Helmet>
           <div className={heroStyles.hero}>
