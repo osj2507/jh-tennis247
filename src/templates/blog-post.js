@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import ReactShare from 'react-share-simplified';
 
 import Layout from '../components/layout'
-import heroStyles from '../components/hero.module.css'
+import Hero from '../components/hero'
 import styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
@@ -33,16 +33,8 @@ class BlogPostTemplate extends React.Component {
             <meta name="twitter:image" content={`https:${post.heroImage.file.url}`} />
             <meta name="twitter:domain" content="tennis247.net" />
           </Helmet>
-          <div className={heroStyles.hero}>
-            <img className={heroStyles.heroImage} alt={post.title} src={post.heroImage.file.url} />
-            <div className={heroStyles.heroImageOverlayLeft} />
-            <div className={heroStyles.heroImageOverlayRight} />
-          </div>
+          <Hero data={{header: post.title, subheader: post.publishDate, heroImage: {file: {url: post.heroImage.file.url}}}} />
           <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <div className={styles.postDate}>
-              {post.publishDate}
-            </div>
             <div className={styles.postShareIcons}>
               <ReactShare
                   url={`https://www.tennis247.net/blog/${post.slug}`}

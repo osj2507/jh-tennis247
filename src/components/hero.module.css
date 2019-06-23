@@ -18,8 +18,39 @@
   left: 0;
   right: 0;
   margin: 64px auto 0;
+  padding: 0 64px;
   text-align: center;
-  font-size: 4rem;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+@media(min-width: 760px) {
+  .heroTitle {
+    font-size: 2.5rem;
+    line-height: 2.7rem;
+    max-width: 600px;
+  }
+}
+
+@media(min-width: 1140px) {
+  .heroTitle {
+    font-size: 3rem;
+    line-height: 3.2rem;
+    max-width: 800px;
+  }
+}
+
+.heroDate {
+  position: absolute;
+  bottom: 64px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;

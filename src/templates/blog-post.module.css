@@ -1,24 +1,17 @@
-.postDate {
-  margin: -2em 0 2em;
-}
-
 .postShareIcons {
   position: absolute;
-  top: 140px;
-  right: 35px;
+  top: 196px;
+  right: 15px;
 }
 
-@media(min-width: 1140px) {
+@media(min-width: 940px) {
   .postShareIcons {
-    top: 425px;
+    top: 120px;
+    right: 35px;
   }
 }
 
 .postDescription {
   font-weight: bold;
   margin: 0 0 2em;
-}
-
-.postBody {
-
 }
