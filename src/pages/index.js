@@ -34,46 +34,39 @@ class RootIndex extends React.Component {
         </Helmet>
         <Hero data={pageInformation} />
         <div className="wrapper">
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="post" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'green'}} />
-        </div>
-        <div className="wrapper">
-          <ul className="article-list">
-            {postsYoutube.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="video" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'blue'}} />
-        </div>
-        <div className="wrapper">
-          <ul className="article-list">
-            {postsTwitter.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="tweet" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'orange'}} />
+          <div className="column-left">
+            <ul className="article-list">
+              {posts.map(({ node }) => {
+                return (
+                  <li key={node.id}>
+                    <ArticlePreview data={node} type="post" />
+                  </li>
+                )
+              })}
+            </ul>
+            <Commercial data={{color: 'green'}} />
+            <ul className="article-list">
+              {postsYoutube.map(({ node }) => {
+                return (
+                  <li key={node.id}>
+                    <ArticlePreview data={node} type="video" />
+                  </li>
+                )
+              })}
+            </ul>
+            <Commercial data={{color: 'blue'}} />
+          </div>
+          <div className="column-right">
+            <ul className="article-list">
+              {postsTwitter.map(({ node }) => {
+                return (
+                  <li className="list-adjustment" key={node.id}>
+                    <ArticlePreview data={node} type="tweet" />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </Layout>
     )

@@ -31,7 +31,7 @@ class BlogIndex extends React.Component {
         </Helmet>
         <Hero data={pageInformation} />
         <div className="wrapper">
-          <ul className="article-list">
+          <ul className="article-list-sub">
             {posts.map(({ node }) => {
               return (
                 <li key={node.id}>

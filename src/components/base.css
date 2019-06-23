@@ -34,6 +34,18 @@ a {
   margin: 0 auto;
 }
 
+.column-left {
+  width: calc(66% - 2.5vmin);
+  float: left;
+  padding: 0 2.5vmin 0 0;
+}
+.column-right {
+  width: calc(33% - 2.5vmin);
+  float: left;
+  padding: 0 0 0 2.5vmin;
+}
+
+
 /**
  * article grid
  */
@@ -44,6 +56,18 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 5vmin;
+}
+.article-list-sub {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 5vmin;
+}
+
+.list-adjustment {
+  margin: -15px 0 -30px;
 }
 
 /**
