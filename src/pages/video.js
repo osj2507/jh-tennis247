@@ -17,7 +17,7 @@ class VideoIndex extends React.Component {
           <title>{pageInformation.metaTitle}</title>
           <meta name="description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:title" content={pageInformation.metaTitle} />
-          <meta property="og:image" content={pageInformation.heroImage.file.url} />
+          <meta property="og:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta property="og:url" content="https://www.tennis247.net/video" />
           <meta property="og:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:site_name" content="tennis247.net" />
@@ -26,7 +26,7 @@ class VideoIndex extends React.Component {
           <meta name="twitter:title" content={pageInformation.metaTitle} />
           <meta name="twitter:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta name="twitter:creator" content="@tennis247dk" />
-          <meta name="twitter:image" content={pageInformation.heroImage.file.url} />
+          <meta name="twitter:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta name="twitter:domain" content="tennis247.net" />
         </Helmet>
         <Hero data={pageInformation} />
