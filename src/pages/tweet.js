@@ -29,7 +29,7 @@ class TweetIndex extends React.Component {
           <meta name="twitter:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta name="twitter:domain" content="tennis247.net" />
         </Helmet>
-        <Hero data={pageInformation} />
+        <Hero data={pageInformation} dataClass='true' />
         <div className="wrapper">
           <ul className="article-list-sub">
             {posts.map(({ node }) => {

@@ -3,8 +3,12 @@
   width: 100vw;
   height: 61.8vh;
   max-height: 350px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   overflow: hidden;
+}
+
+.hero.heightDefined {
+  max-height: 250px;
 }
 
 @media(min-width: 1140px) {
@@ -25,6 +29,12 @@
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
+}
+
+.hero.heightDefined .heroTitle {
+  font-size: 3rem;
+  line-height: 3.2rem;
+  max-width: 800px;
 }
 
 @media(min-width: 760px) {

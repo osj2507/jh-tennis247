@@ -32,7 +32,7 @@ class RootIndex extends React.Component {
           <meta name="twitter:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta name="twitter:domain" content="tennis247.net" />
         </Helmet>
-        <Hero data={pageInformation} />
+        <Hero data={pageInformation} dataClass='true' />
         <div className="wrapper">
           <div className="column-left">
             <ul className="article-list">
