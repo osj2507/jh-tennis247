@@ -17,7 +17,7 @@ class BlogIndex extends React.Component {
           <title>{pageInformation.metaTitle}</title>
           <meta name="description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:title" content={pageInformation.metaTitle} />
-          <meta property="og:image" content={pageInformation.heroImage.file.url} />
+          <meta property="og:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta property="og:url" content="https://www.tennis247.net/blog" />
           <meta property="og:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:site_name" content="tennis247.net" />
@@ -26,16 +26,27 @@ class BlogIndex extends React.Component {
           <meta name="twitter:title" content={pageInformation.metaTitle} />
           <meta name="twitter:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta name="twitter:creator" content="@tennis247dk" />
-          <meta name="twitter:image" content={pageInformation.heroImage.file.url} />
+          <meta name="twitter:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta name="twitter:domain" content="tennis247.net" />
         </Helmet>
-        <Hero data={pageInformation} />
+        <Hero data={pageInformation} dataClass='true' />
+        <div className="wrapper">
+          <ul className="article-list-sub">
+            {posts.map(({ node }) => {
+              return (
+                <li key={node.id}>
+                  <ArticlePreview data={node} type="post" />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
         <div className="wrapper">
           <ul className="article-list">
             {posts.map(({ node }) => {
               return (
                 <li key={node.id}>
-                  <ArticlePreview data={node} type="post" />
+                  <ArticlePreview data={node} type="post_sub" />
                 </li>
               )
             })}

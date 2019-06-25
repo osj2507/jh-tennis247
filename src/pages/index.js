@@ -20,7 +20,7 @@ class RootIndex extends React.Component {
           <title>{pageInformation.metaTitle}</title>
           <meta name="description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:title" content={pageInformation.metaTitle} />
-          <meta property="og:image" content={pageInformation.heroImage.file.url} />
+          <meta property="og:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta property="og:url" content="https://www.tennis247.net" />
           <meta property="og:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta property="og:site_name" content="tennis247.net" />
@@ -29,51 +29,44 @@ class RootIndex extends React.Component {
           <meta name="twitter:title" content={pageInformation.metaTitle} />
           <meta name="twitter:description" content={pageInformation.metaDescription.childMarkdownRemark.rawMarkdownBody} />
           <meta name="twitter:creator" content="@tennis247dk" />
-          <meta name="twitter:image" content={pageInformation.heroImage.file.url} />
+          <meta name="twitter:image" content={`https:${pageInformation.heroImage.file.url}`} />
           <meta name="twitter:domain" content="tennis247.net" />
         </Helmet>
-        <Hero data={pageInformation} />
+        <Hero data={pageInformation} dataClass='true' />
         <div className="wrapper">
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="post" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'green'}} />
-        </div>
-        <div className="wrapper">
-          <ul className="article-list">
-            {postsYoutube.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="video" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'blue'}} />
-        </div>
-        <div className="wrapper">
-          <ul className="article-list">
-            {postsTwitter.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <ArticlePreview data={node} type="tweet" />
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div className="wrapper">
-          <Commercial data={{color: 'orange'}} />
+          <div className="column-left">
+            <ul className="article-list">
+              {posts.map(({ node }) => {
+                return (
+                  <li key={node.id}>
+                    <ArticlePreview data={node} type="post" />
+                  </li>
+                )
+              })}
+            </ul>
+            <Commercial data={{color: 'green'}} />
+            <ul className="article-list">
+              {postsYoutube.map(({ node }) => {
+                return (
+                  <li key={node.id}>
+                    <ArticlePreview data={node} type="video" />
+                  </li>
+                )
+              })}
+            </ul>
+            <Commercial data={{color: 'blue'}} />
+          </div>
+          <div className="column-right">
+            <ul className="article-list">
+              {postsTwitter.map(({ node }) => {
+                return (
+                  <li className="list-adjustment" key={node.id}>
+                    <ArticlePreview data={node} type="tweet" />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </Layout>
     )

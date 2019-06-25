@@ -10,7 +10,7 @@ export default ({ data, type }) => (
         <img className={styles.previewImage} src={data.heroImage.file.url} />
         <div className={styles.previewContent}>
           <h3 className={styles.previewTitle}>
-            <Link to={`/blog/${data.slug}`}>{data.title}</Link>
+            <Link to={`/blog/${data.slug}/`}>{data.title}</Link>
           </h3>
           <small>{data.publishDate}</small>
           <div

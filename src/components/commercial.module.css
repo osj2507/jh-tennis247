@@ -3,7 +3,8 @@
   height: 150px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+  margin: 32px 0;
 }
 .commercialBackgroundColorGreen {
   background-color: #18723c;
@@ -11,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center; 
+  margin: 32px 0;
 }
 .commercialBackgroundColorOrange {
   background-color: #f58249;
@@ -18,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center; 
+  margin: 32px 0;
 }
 
 .commercialImage {
