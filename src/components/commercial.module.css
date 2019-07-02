@@ -30,3 +30,17 @@
   max-height: 150px;
   align-self: center;
 }
+
+.commercial {
+  display: none;
+  margin: 32px 0;
+}
+.commercial > div {
+  margin: 0 auto;
+}
+
+@media(min-width: 700px) {
+  .commercial {
+    display: block;
+  }
+}

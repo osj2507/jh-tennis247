@@ -44,7 +44,7 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
-            <Commercial data={{color: 'green'}} />
+            <Commercial data={{direction: 'horizontal'}} />
             <ul className="article-list">
               {postsYoutube.map(({ node }) => {
                 return (
@@ -54,7 +54,7 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
-            <Commercial data={{color: 'blue'}} />
+            <Commercial data={{direction: 'horizontal'}} />
           </div>
           <div className="column-right">
             <ul className="article-list">
