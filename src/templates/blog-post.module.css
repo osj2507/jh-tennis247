@@ -11,16 +11,34 @@
   }
 }
 
+.postContent {
+  display: block;
+  width: 100%;
+}
+
+@media(min-width: 700px) {
+  .postContent {
+    display: inline-block;
+    width: calc(100% - 200px);
+    vertical-align:top;
+  }
+}
+
 .postDescription {
   font-weight: bold;
   margin: 0 0 2em;
 }
 
 .postCommercial {
-  margin: 32px 0;
+  display: none;
 }
-.postCommercial > div {
-  margin: 0 auto;
+
+@media(min-width: 700px) {
+  .postCommercial {
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+  }
 }
 
 .postCommercialHorizontal {
