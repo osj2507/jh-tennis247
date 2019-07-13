@@ -9,6 +9,13 @@ import Hero from '../components/hero'
 import styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    const scriptTagVertical=document.createElement('script')
+    scriptTagVertical.src='https://embed.bannerflow.com/58e6a9ae1239fe392477d40d?targetwindow=_blank&targeturl=http://record.nordicbet.com/_RhJZfw3OGM0KiOCcz8iHu38Kgjjxr59i/1/&media=140513&campaign=1'
+    scriptTagVertical.async=true;
+    this.instanceVertical.appendChild(scriptTagVertical)
+  }
+
   render() {
     const pageInformation = get(this, 'props.data.allContentfulPage.edges[0].node'),
           post = get(this.props, 'data.contentfulBlogPost');
@@ -44,18 +51,23 @@ class BlogPostTemplate extends React.Component {
                   iconSize={64}
               />
             </div>
-            <div
-              className={styles.postDescription}
-              dangerouslySetInnerHTML={{
-                __html: post.description.childMarkdownRemark.html
-              }}
-            />
-            <div
-              className={styles.postBody}
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html
-              }}
-            />
+            <div className={styles.postContent}>
+              <div
+                className={styles.postDescription}
+                dangerouslySetInnerHTML={{
+                  __html: post.description.childMarkdownRemark.html
+                }}
+              />
+              <div
+                className={styles.postBody}
+                dangerouslySetInnerHTML={{
+                  __html: post.body.childMarkdownRemark.html
+                }}
+              />
+            </div>
+            <div className={styles.postCommercial}>
+              <div ref={el => (this.instanceVertical = el)} className={styles.postCommercialHorizontal} />
+            </div>
           </div>
         </div>
       </Layout>
